@@ -65,10 +65,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Detalii\Fier.html" />
-    <Content Include="Detalii\Grâu.html" />
-    <Content Include="Detalii\Lemn.html" />
-    <Content Include="Detalii\Lut.html" />
+    <Content Include="css\style.css" />
+    <Content Include="details\clay.html" />
+    <Content Include="details\iron.html" />
+    <Content Include="details\wheat.html" />
+    <Content Include="details\wood.html" />
+    <Content Include="img\background-clearing.jpg" />
+    <Content Include="img\icon-clay.png" />
+    <Content Include="img\icon-iron.png" />
+    <Content Include="img\icon-wood.png" />
+    <Content Include="img\icon-wheat.png" />
+    <Content Include="img\mine-clay.png" />
+    <Content Include="img\mine-iron.png" />
+    <Content Include="img\mine-wheat.png" />
+    <Content Include="img\mine-wood.png" />
     <Content Include="Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>

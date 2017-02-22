@@ -1,0 +1,21 @@
+﻿body {
+    background-image:url(../img/background-clearing.jpg);
+    background-repeat:no-repeat;
+    height:100%;
+}
+.main {
+    height:100vh;
+}
+
+.mines {
+    margin-left:700px;
+    margin-top:300px;
+}
+
+.mines table {
+    background-color: lightgray;
+}
+
+td {
+    background-color: lightgreen;
+}
