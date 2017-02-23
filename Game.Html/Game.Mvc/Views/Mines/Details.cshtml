@@ -1,0 +1,27 @@
+﻿@model Game.Mvc.Models.Mine
+@{
+    ViewBag.Title = "Mine";
+}
+<div class="mine-detail">
+    <h2>@this.Model.Type</h2>
+    De aici minerii tăi extrag minereul de fier, vital armelor şi clădirilor. Prin creşterea nivelului minei, creşte cantitatea de fier extras pe oră.
+    <img src="~/Content/img/mine-@(this.Model.Type).png" />
+    <table>
+        <tbody>
+            <tr>
+                <td>Producţie curentă: </td>
+                <td>@this.Model.GetProductionPerHour() pe oră</td>
+            </tr>
+            <tr>
+                <td>Producţie la nivel @(this.Model.Level + 1): </td>
+                <td>@this.Model.GetProductionPerHour(this.Model.Level + 1) pe oră</td>
+            </tr>
+        </tbody>
+    </table>
+    @using(Html.BeginForm("Upgrade", "Mines"))
+    {
+        @Html.HiddenFor(m => m.MineId)
+        <button type="submit">Upgrade</button>
+    }
+</div>
+

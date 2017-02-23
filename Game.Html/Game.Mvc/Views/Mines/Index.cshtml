@@ -1,0 +1,26 @@
+﻿@model Game.Mvc.Models.City
+@{
+    ViewBag.Title = "Mines";
+}
+<div class="main">
+    <table class="mines">
+        <thead>
+            <tr>
+                <td colspan="2">Tip resursă</td>
+                <td>Nivel</td>
+                <td>Acțiune</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var mine in this.Model.Mines)
+            {
+                <tr>
+                    <td><img src="~/Content/img/icon-@(mine.Type).png" /></td>
+                    <td>@mine.Type</td>
+                    <td>@mine.Level</td>
+                    <td>@Html.ActionLink("Details", "Details", new { mine.MineId })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
