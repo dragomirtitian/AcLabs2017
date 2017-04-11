@@ -34,12 +34,12 @@ body {
 }
 
 .mines {
-    margin-left:400px;
+    margin-left:300px;
     margin-top:200px;
 }
 
-.mines table {
-    background-color: lightgray;
+.mines {
+    font-size:x-large;
 }
 
 td {
