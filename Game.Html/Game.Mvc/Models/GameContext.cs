@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace Game.Mvc.Models
 {
@@ -28,12 +30,14 @@ namespace Game.Mvc.Models
         public int ResourceId { get; set; }
 
         public int CityId { get; set; }
+
+        [ScriptIgnore]
         public virtual City City { get; set; }
 
         public DateTime LastUpdate { get; set; }
         public ResourceType Type { get; set; }
 
-        double Level { get; set; }
+        public double Level { get; set; }
     }
 
     public class Mine
