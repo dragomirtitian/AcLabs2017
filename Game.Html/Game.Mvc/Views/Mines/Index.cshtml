@@ -2,6 +2,19 @@
 @{
     ViewBag.Title = "Mines";
 }
+
+<table class="resourcesTable">
+    <tr>
+        @foreach (var res in this.Model.Resources)
+        {
+
+            <td class="res-img @(res.Type)"><img src="~/Content/img/icon-@(res.Type).png" /></td>
+            <td class="res-value @(res.Type)" id="@(res.Type)">@res.Level.ToString("n4")</td>
+            <td class="res-update @(res.Type) hidden">@res.LastUpdate</td>
+
+        }
+    </tr>
+</table>
 <div class="main">
     <table class="mines">
         <thead>
@@ -14,13 +27,18 @@
         <tbody>
             @foreach(var mine in this.Model.Mines)
             {
-                <tr>
+                <tr class="@mine.Type">
                     <td><img src="~/Content/img/icon-@(mine.Type).png" /></td>
                     <td>@mine.Type</td>
                     <td>@mine.Level</td>
+                    <td class="hourProduction">@mine.GetProductionPerHour()</td>
                     <td>@Html.ActionLink("Details", "Details", new { mine.MineId })</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+@section Scripts{
+    <script src="~/Scripts/site/mines.js"> </script>
+    <script src="~/Scripts/Date.min.js"></script>   
+}

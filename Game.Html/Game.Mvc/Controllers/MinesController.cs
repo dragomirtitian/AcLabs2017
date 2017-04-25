@@ -16,10 +16,42 @@ namespace Game.Mvc.Controllers
         {
             this.gameDataContext = new GameDbContext();
         }
+
+        private void UpdteResources(City city)
+        {
+            var start = DateTime.Now;
+            foreach (var res in city.Resources)
+            {
+                foreach (var mine in city.Mines)
+                {
+                    if (mine.Type == res.Type)
+                    {
+                        res.Level += mine.GetProductionPerHour() * (start - res.LastUpdate).TotalHours;
+                    }
+                }
+                res.LastUpdate = start;
+            }
+            gameDataContext.SaveChanges();
+
+        }
+        [HttpGet]
+        public ActionResult Resources()
+        {
+            var user = gameDataContext.Users.Find(User.Identity.GetUserId());
+
+            var city = user.Cities.First();
+            this.UpdteResources(city);
+
+            return this.Json(city.Resources.Select(_=> new { Type = _.Type.ToString(), _.Level }).ToArray(), JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Game
         public ActionResult Index()
         {
             var user = gameDataContext.Users.Find(User.Identity.GetUserId());
+
+            var city = user.Cities.First();
+            this.UpdteResources(city);
             return View(user.Cities.First());
         }
         public ActionResult Details(int mineId)
