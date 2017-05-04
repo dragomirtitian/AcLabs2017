@@ -25,16 +25,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var mine in this.Model.Mines)
-            {
-                <tr class="@mine.Type">
-                    <td><img src="~/Content/img/icon-@(mine.Type).png" /></td>
-                    <td>@mine.Type</td>
-                    <td>@mine.Level</td>
-                    <td class="hourProduction">@mine.GetProductionPerHour()</td>
-                    <td>@Html.ActionLink("Details", "Details", new { mine.MineId })</td>
-                </tr>
-            }
+
+            <div class="main">
+                <img src="~/Content/img/village-bg.jpg" id="village-bg" />
+
+                <div class="village-wrapper">
+                    @foreach (var mine in this.Model.Mines)
+                    {
+                        <div class="mine-level @mine.Type.ToString().ToLower() @mine.MineStyle ">
+                            <div class="hidden">@mine.Type</div>
+                            <div>@Html.ActionLink(mine.Level.ToString(), "Details", new { mine.MineId })</div>
+                            <div class="hourProduction hidden">@mine.GetProductionPerHour()</div>
+                        </div>
+                    }
+                </div>
+
+            </div>
         </tbody>
     </table>
 </div>
