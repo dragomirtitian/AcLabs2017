@@ -25,33 +25,102 @@ textarea {
 
 
 body {
-    background-image:url(../Content/img/background-clearing.jpg);
-    background-repeat:no-repeat;
-    height:100%;
+    background-image: url(../Content/img/background-clearing.jpg);
+    background-repeat: no-repeat;
+    height: 100%;
 }
+
 .main {
-    height:100vh;
+    height: 100vh;
 }
 
 .mines {
-    margin-left:400px;
-    margin-top:200px;
+    margin-left: 400px;
+    margin-top: 200px;
 }
 
-.mines table {
-    background-color: lightgray;
-}
+    .mines table {
+        background-color: lightgray;
+    }
 
 td {
     background-color: lightgreen;
 }
 
-.mine-detail{
-    margin:10px;
-    padding:50px;
-    background-color:white;
-    border-color:green;
-    border-width:1px;
+.mine-detail {
+    margin: 10px;
+    padding: 50px;
+    background-color: white;
+    border-color: green;
+    border-width: 1px;
     border-style: solid;
-    border-radius:25px;
+    border-radius: 25px;
+}
+
+#village-bg {
+    display: block;
+    position: absolute;
+    top: 206px;
+    left: 585px;
+}
+
+.village-wrapper {
+    display: block;
+    position: absolute;
+    top: 206px;
+    left: 585px;
+    width: 484px;
+    height: 317px;
+}
+
+    .village-wrapper > .mine-level {
+        display: block;
+        position: absolute;
+        min-width: 30px;
+        min-height: 30px;
+        border-radius: 50%;
+        background: #dedede;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+        border: 2px solid#ccc;
+        text-align: center;
+        line-height: 26px;
+    }
+
+.mine-level.mine-clay {
+    top: 165px;
+    left: 52px;
+}
+
+.mine-level.green {
+    background: #00ff21;
+    border: 2px solid green;
+}
+
+.mine-level.red {
+    background: #e54747;
+    border: 2px solid #b42020;
+}
+
+.mine-level.upgrading {
+    animation: bubble 1s infinite;
+}
+
+.mine-level:nth-child(2) {
+    top: 200px;
+    left: 60px;
+}
+
+
+@keyframes bubble {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
