@@ -42,6 +42,8 @@ namespace Game.Mvc.Models
 
     public class Mine
     {
+        public string MineStyle { get; set; }
+
         public int MineId { get; set; }
 
         public int CityId { get; set; }

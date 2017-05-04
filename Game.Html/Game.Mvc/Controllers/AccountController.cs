@@ -164,22 +164,86 @@ namespace Game.Mvc.Controllers
                             {
                                 new Mine
                                 {
-                                    Level = 0,
+                                    Level = 1,
+                                    MineStyle = "mine-clay-1",
                                     Type = ResourceType.Clay,
                                 },
                                 new Mine
                                 {
-                                    Level = 0,
+                                    Level = 1,
+                                    MineStyle = "mine-clay-2",
+                                    Type = ResourceType.Clay,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-clay-3",
+                                    Type = ResourceType.Clay,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-iron-1",
                                     Type = ResourceType.Iron,
                                 },
                                 new Mine
                                 {
-                                    Level = 0,
+                                    Level = 1,
+                                    MineStyle = "mine-iron-2",
+                                    Type = ResourceType.Iron,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wheat-1",
                                     Type = ResourceType.Wheat,
                                 },
                                 new Mine
                                 {
-                                    Level = 0,
+                                    Level = 1,
+                                    MineStyle = "mine-wheat-2",
+                                    Type = ResourceType.Wheat,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wheat-3",
+                                    Type = ResourceType.Wheat,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wheat-4",
+                                    Type = ResourceType.Wheat,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wheat-5",
+                                    Type = ResourceType.Wheat,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wheat-6",
+                                    Type = ResourceType.Wheat,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wood-1",
+                                    Type = ResourceType.Wood,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wood-2",
+                                    Type = ResourceType.Wood,
+                                },
+                                new Mine
+                                {
+                                    Level = 1,
+                                    MineStyle = "mine-wood-3",
                                     Type = ResourceType.Wood,
                                 },
                             },
