@@ -6,3 +6,5 @@
 /Game.Html/.vs/Game.Html/v15/*.suo
 /Game.Html/.vs
 /Game.Html/Game.Mvc/*.user
+/Game.Html/Game.Mvc/App_Data/aspnet-Game.Mvc-20170222114858.mdf
+/Game.Html/Game.Mvc/App_Data/aspnet-Game.Mvc-20170222114858_log.ldf

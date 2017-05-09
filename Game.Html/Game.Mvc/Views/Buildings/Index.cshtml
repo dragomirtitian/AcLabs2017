@@ -1,0 +1,38 @@
+﻿@model Game.Mvc.Models.City
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Building Type</th>
+            <th>Level</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var building in this.Model.Buildings)
+        {
+            if (building.BuildingType != null)
+            {
+                <tr>
+                    <td>@building.BuildingType.Name</td>
+                    <td>@building.Level</td>
+                    <td>@Html.ActionLink("Details", building.BuildingType.Action)</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>None</td>
+                    <td></td>
+                    <td>@Html.ActionLink("Build", "Build", new { id = building.BuildingId })</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

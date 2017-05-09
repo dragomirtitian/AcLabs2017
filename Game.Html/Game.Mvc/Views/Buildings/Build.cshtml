@@ -1,0 +1,20 @@
+﻿@model Game.Mvc.Models.BuidlViewModel
+@{
+    ViewBag.Title = "Build";
+}
+
+<h2>Select What To Build</h2>
+@using(Html.BeginForm())
+{
+    @Html.HiddenFor(_ => _.BuildingId)
+    <div>
+        @Html.ListBoxFor(_ => _.SelectedBuildingTypeId, this.Model.ExistingTypes)
+        @Html.ValidationMessageFor(m => m.SelectedBuildingTypeId);
+    </div>
+    <button type="submit">Create Building</button>
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

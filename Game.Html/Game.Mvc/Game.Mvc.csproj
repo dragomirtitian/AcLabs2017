@@ -77,6 +77,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -158,13 +161,28 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuildingsController.cs" />
     <Compile Include="Controllers\MinesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705081007334_InitialCreate.cs" />
+    <Compile Include="Migrations\201705081007334_InitialCreate.Designer.cs">
+      <DependentUpon>201705081007334_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091100345_ColumnUpgradeCompletedAt.cs" />
+    <Compile Include="Migrations\201705091100345_ColumnUpgradeCompletedAt.Designer.cs">
+      <DependentUpon>201705091100345_ColumnUpgradeCompletedAt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091140018_Buildings.cs" />
+    <Compile Include="Migrations\201705091140018_Buildings.Designer.cs">
+      <DependentUpon>201705091140018_Buildings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BuidlViewModel.cs" />
     <Compile Include="Models\GameContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -191,7 +209,6 @@
     <Content Include="Content\img\mine-iron.png" />
     <Content Include="Content\img\mine-wheat.png" />
     <Content Include="Content\img\mine-wood.png" />
-    <Content Include="mines-html.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -261,6 +278,9 @@
     <Content Include="Views\Mines\Upgrade.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Buildings\Index.cshtml" />
+    <Content Include="Views\Buildings\Build.cshtml" />
+    <Content Include="Views\Buildings\Message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -268,6 +288,17 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705081007334_InitialCreate.resx">
+      <DependentUpon>201705081007334_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091100345_ColumnUpgradeCompletedAt.resx">
+      <DependentUpon>201705091100345_ColumnUpgradeCompletedAt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091140018_Buildings.resx">
+      <DependentUpon>201705091140018_Buildings.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
