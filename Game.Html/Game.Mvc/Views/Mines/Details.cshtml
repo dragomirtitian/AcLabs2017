@@ -22,6 +22,7 @@
     {
         @Html.HiddenFor(m => m.MineId)
         <button type="submit">Upgrade</button>
+        <label for="fastUpgrade">Do a fast upgrade</label> @Html.CheckBox("fastUpgrade", false);
     }
 </div>
 

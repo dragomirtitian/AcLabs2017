@@ -61,11 +61,39 @@ namespace Game.Mvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upgrade(int mineId)
+        public ActionResult Upgrade(int mineId, bool fastUpgrade)
         {
             var mine = this.gameDataContext.Mines.Find(mineId);
+            var city = mine.City;
+            var requiredResources = mine.GetUpgradeRequirements();
+
+            if (fastUpgrade)
+            {
+                requiredResources = requiredResources
+                    .Select(_ => (amount: _.amount * 10, type: _.type))
+                    .ToArray();
+            }
+
+
+            var neededWithAvailable = requiredResources
+                .Join(city.Resources, required => required.type, have => have.Type, (required, have) => (required: required, have: have));
+
+            if(!neededWithAvailable.All(_=> _.have.Level > _.required.amount))
+            {
+                return View(new MessageViewModel
+                {
+                    Message = "You do not have enough resources!"
+                });
+            }
+
+            foreach (var item in neededWithAvailable)
+            {
+                item.have.Level -= item.required.amount;
+            }
+            
             mine.Level = mine.Level + 1;
             this.gameDataContext.SaveChanges();
+
             return View(new MessageViewModel
             {
                 Message = "Upgrade succesful"

@@ -11,7 +11,9 @@ namespace Game.Mvc.Models
     public partial class GameDbContext 
     {
         public DbSet<City> Cities { get; set; }
+        public DbSet<Building> Buildings { get; set; }
         public DbSet<Mine> Mines { get; set; }
+        public DbSet<BuildingType> BuildingTypes { get; set; }
     }
 
     public class City
@@ -19,6 +21,9 @@ namespace Game.Mvc.Models
         public int CityId { get; set; }
 
         public virtual IList<Mine> Mines { get; set; }
+
+        public virtual IList<Building> Buildings { get; set; }
+
         public virtual IList<Resource> Resources { get; set; }
 
         public string ApplicationUserId { get; set; }
@@ -47,15 +52,28 @@ namespace Game.Mvc.Models
         public int MineId { get; set; }
 
         public int CityId { get; set; }
-        public City City { get; set; }
+        public virtual City City { get; set; }
 
         public int Level { get; set; }
 
         public ResourceType Type { get; set; }
 
+        public DateTime? UpgradeCompletedAt { get; set; }
+
         public double GetProductionPerHour(int? level = null)
         {
             return (level ?? this.Level) * 13; 
+        }
+
+        public (int amount, ResourceType type)[] GetUpgradeRequirements()
+        {
+            return new[]
+            {
+                (10 * (Level+ 1), ResourceType.Clay),
+                (10 * (Level+ 1), ResourceType.Iron),
+                (10 * (Level+ 1), ResourceType.Wheat),
+                (10 * (Level+ 1), ResourceType.Wood),
+            };
         }
     }
 
@@ -65,5 +83,24 @@ namespace Game.Mvc.Models
         Iron,
         Clay,
         Wood
+    }
+
+
+    public class Building
+    {
+        public int BuildingId { get; set; }
+        public int Level { get; set; }
+        public int? BuildingTypeId { get; set; }
+        public virtual BuildingType BuildingType { get; set; }
+        public int CityId { get; set; }
+        public virtual City City { get; set; }
+    }
+
+    public class BuildingType
+    {
+        public int BuildingTypeId { get; set; }
+        public string Action { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
