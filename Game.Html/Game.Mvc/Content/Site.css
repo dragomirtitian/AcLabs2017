@@ -196,3 +196,30 @@ td {
         transform: scale(1);
     }
 }
+
+#mine-details-container {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 800px;
+    margin-left: -400px;
+    display: none; 
+}
+
+#mine-details-container.show{
+    display: block;
+}
+
+#mine-details-container .close-btn {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.mine-details-btn {
+    cursor: pointer;
+}

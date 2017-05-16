@@ -38,9 +38,40 @@ $(document).ready(function () {
                 });
             }
         });
-    }
+        // $(“#container”).load(“/file.html”);
+
+
+    };
 
     setInterval(updateAjaxResources, 500);
 
+    //exercitiu 1
+    var getMineDetailsHTML = function (mineId) {
+        $('#mine-details-container > .content').load("/Mines/Details?mineId=" + mineId)
+        $('#mine-details-container').addClass('show');
+    };
+
+    $('.mine-details-btn').click(function (e) {
+        var mineId = $(this).data('mine-id');
+        getMineDetailsHTML(mineId);
+    });
+
+    //Exercitiu 2
+    $('#mine-details-container > .close-btn').click(function () {
+        $('#mine-details-container').removeClass('show');
+    });
+
+    //exercitiu 3
+    $('#mine-details-container').on('click', '.upgrade-mine', function (e) {
+        console.log('click');
+        $.post('/Mines/Upgrade',
+            {
+                mineId: $(this).data('mine-id'),
+                fastUpgrade: false
+            },
+            function (response) {
+                console.log(response);
+        });
+    });
 
 });

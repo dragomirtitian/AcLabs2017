@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace Game.Mvc.Models
 {
-    public partial class GameDbContext 
+    public partial class GameDbContext // 
     {
         public DbSet<City> Cities { get; set; }
         public DbSet<Building> Buildings { get; set; }

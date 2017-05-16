@@ -1,6 +1,7 @@
 ﻿@model Game.Mvc.Models.Mine
 @{
     ViewBag.Title = "Mine";
+    this.Layout = null;
 }
 <div class="mine-detail">
     <h2>@this.Model.Type</h2>
@@ -18,11 +19,6 @@
             </tr>
         </tbody>
     </table>
-    @using(Html.BeginForm("Upgrade", "Mines"))
-    {
-        @Html.HiddenFor(m => m.MineId)
-        <button type="submit">Upgrade</button>
-        <label for="fastUpgrade">Do a fast upgrade</label> @Html.CheckBox("fastUpgrade", false);
-    }
+    <button class="upgrade-mine" data-mine-id="@Model.MineId">Upgrade</button>
 </div>
 

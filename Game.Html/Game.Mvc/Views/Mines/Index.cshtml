@@ -34,12 +34,16 @@
                     {
                         <div class="mine-level @mine.Type.ToString().ToLower() @mine.MineStyle ">
                             <div class="hidden">@mine.Type</div>
-                            <div>@Html.ActionLink(mine.Level.ToString(), "Details", new { mine.MineId })</div>
+                            <div class="mine-details-btn" data-mine-id="@mine.MineId">@mine.Level</div>
                             <div class="hourProduction hidden">@mine.GetProductionPerHour()</div>
                         </div>
                     }
                 </div>
 
+            </div>
+            <div id="mine-details-container">
+                <div class="close-btn">X</div>
+                <div class="content"></div>
             </div>
         </tbody>
     </table>
