@@ -16,7 +16,7 @@
             {
                 <div class="building @building.BuildingType.Name building-@index">
                     <div class="hidden">@building.BuildingType.Name</div>
-                    <a href="@Url.Action(building.BuildingType.Action)">
+                    <a href="@Url.Action(building.BuildingType.Action, new { buildingId = building.BuildingId })">
                         <img src="~/Content/img/@(building.BuildingType.Name).png" />
                         <div class="building-level" data-building-id="@building.BuildingId" data-building-action="@building.BuildingType.Action">@building.Level</div>
                     </a>
@@ -25,7 +25,7 @@
             else
             {
                 <div class="building building-@index building-empty">
-                    <a href="@Url.Action("Build")" ><img src="~/Content/img/empty.png" /></a>
+                    <a href="@Url.Action("Build", new { buildingId = building.BuildingId })" ><img src="~/Content/img/empty.png" /></a>
                 </div>
             }
             index++;

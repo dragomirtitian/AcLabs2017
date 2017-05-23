@@ -26,11 +26,11 @@ namespace Game.Mvc.Controllers
             return View(city);
         }
 
-        public ActionResult Build(int id)
+        public ActionResult Build(int buildingId)
         {
             return View(new BuidlViewModel
             {
-                BuildingId = id,
+                BuildingId = buildingId,
                 ExistingTypes = this.gameDataContext.BuildingTypes
                         .Select(_=> new SelectListItem
                         {
@@ -53,6 +53,18 @@ namespace Game.Mvc.Controllers
             {
                 Message = "Building was created"
             });
+        }
+
+        public ActionResult Details(int buildingId)
+        {
+            var building = this.gameDataContext.Buildings.Find(buildingId);
+            return View(building);
+        }
+
+        public ActionResult Barracks(int buildingId)
+        {
+            var building = this.gameDataContext.Buildings.Find(buildingId);
+            return View(building);
         }
     }
 
