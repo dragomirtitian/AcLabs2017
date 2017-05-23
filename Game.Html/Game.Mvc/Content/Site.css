@@ -204,13 +204,15 @@ td {
     width: 800px;
     margin-left: -400px;
     display: none; 
+    background: #fff;
+    min-height: 300px;
 }
 
 #mine-details-container.show{
     display: block;
 }
 
-#mine-details-container .close-btn {
+#mine-details-container > .close-btn {
     display: block;
     position: absolute;
     width: 20px;

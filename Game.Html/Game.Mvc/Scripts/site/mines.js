@@ -43,11 +43,12 @@ $(document).ready(function () {
 
     };
 
-    setInterval(updateAjaxResources, 500);
+    //setInterval(updateAjaxResources, 500);
 
     //exercitiu 1
     var getMineDetailsHTML = function (mineId) {
-        $('#mine-details-container > .content').load("/Mines/Details?mineId=" + mineId)
+        $('#mine-details-container > .content').empty();
+        $('#mine-details-container > .content').load("/Mines/Details?mineId=" + mineId);
         $('#mine-details-container').addClass('show');
     };
 
