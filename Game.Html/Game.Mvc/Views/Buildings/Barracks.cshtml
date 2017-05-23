@@ -1,4 +1,45 @@
-﻿@{
+﻿@model Game.Mvc.Models.CreateTroupsViewModel
+@{
     ViewBag.Title = "Barracks";
 }
+<div class="mine-detail">
+    <h2>Existing Troups</h2>
+    <table width="50%">
+        <thead>
+            <tr>
+                <th>Troup Type</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        @foreach (var t in this.Model.ExistingTroups)
+        {
+            <tr>
+                <td>@t.TroupType.Name</td>
+                <td>@t.TroupCount</td>
+            </tr>
+        }
+    </table>
 
+    <h2>Select What To Create</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(_ => _.BuildingId)
+        <div>
+            @Html.TextBoxFor(_ => _.Count)
+            @Html.ValidationMessageFor(m => m.Count)
+        </div>
+        <div>
+            @Html.ListBoxFor(_ => _.SelectedTroupTypeId, this.Model.TroupTypes)
+            @Html.ValidationMessageFor(m => m.SelectedTroupTypeId)
+        </div>
+        <button type="submit">Create Troups</button>
+    }
+
+</div>
+
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

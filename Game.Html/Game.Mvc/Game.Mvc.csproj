@@ -186,8 +186,13 @@
     <Compile Include="Migrations\201705230954531_Troups.Designer.cs">
       <DependentUpon>201705230954531_Troups.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705231117271_Troups2.cs" />
+    <Compile Include="Migrations\201705231117271_Troups2.Designer.cs">
+      <DependentUpon>201705231117271_Troups2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CreateTroupsViewModel.cs" />
     <Compile Include="Models\BuidlViewModel.cs" />
     <Compile Include="Models\GameContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -322,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705230954531_Troups.resx">
       <DependentUpon>201705230954531_Troups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231117271_Troups2.resx">
+      <DependentUpon>201705231117271_Troups2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

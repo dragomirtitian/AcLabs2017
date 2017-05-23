@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -123,9 +124,16 @@ namespace Game.Mvc.Models
     public class TroupType
     {
         public int TroupTypeId { get; set; }
+        [Required]
+        [MinLength(5)]
+        [MaxLength(15)]
+        [RegularExpression("[A-z]*")]
         public string Name { get; set; }
+        [Range(0,100)]
         public double Attack { get; set; }
+        [Range(0, 100)]
         public double Defence { get; set; }
+        [Range(0, 100)]
         public int CreationSpeed { get; set; }
     }
 }
