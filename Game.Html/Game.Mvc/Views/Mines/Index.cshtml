@@ -16,39 +16,20 @@
     </tr>
 </table>
 <div class="main">
-    <table class="mines">
-        <thead>
-            <tr>
-                <td colspan="2">Tip resursă</td>
-                <td>Nivel</td>
-                <td>Acțiune</td>
-            </tr>
-        </thead>
-        <tbody>
+    <img src="~/Content/img/village-bg.jpg" id="village-bg" />
 
-            <div class="main">
-                <img src="~/Content/img/village-bg.jpg" id="village-bg" />
-
-                <div class="village-wrapper">
-                    @foreach (var mine in this.Model.Mines)
-                    {
-                        <div class="mine-level @mine.Type.ToString().ToLower() @mine.MineStyle ">
-                            <div class="hidden">@mine.Type</div>
-                            <div class="mine-details-btn" data-mine-id="@mine.MineId">@mine.Level</div>
-                            <div class="hourProduction hidden">@mine.GetProductionPerHour()</div>
-                        </div>
-                    }
-                </div>
-
+    <div class="village-wrapper">
+        @foreach (var mine in this.Model.Mines)
+        {
+            <div class="mine-level @mine.Type.ToString().ToLower() @mine.MineStyle ">
+                <div class="hidden">@mine.Type</div>
+                <div class="mine-details-btn" data-mine-id="@mine.MineId">@mine.Level</div>
+                <div class="hourProduction hidden">@mine.GetProductionPerHour()</div>
             </div>
-            <div id="mine-details-container">
-                <div class="close-btn">X</div>
-                <div class="content"></div>
-            </div>
-        </tbody>
-    </table>
+        }
+    </div>
 </div>
 @section Scripts{
     <script src="~/Scripts/site/mines.js"> </script>
-    <script src="~/Scripts/Date.min.js"></script>   
+    <script src="~/Scripts/Date.min.js"></script>
 }

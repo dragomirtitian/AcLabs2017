@@ -37,7 +37,7 @@ namespace Game.Mvc.Migrations
 
             foreach (var city in context.Cities.ToList())
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 13; i++)
                 {
                     var building = city.Buildings.ElementAtOrDefault(i);
                     if(building == null)

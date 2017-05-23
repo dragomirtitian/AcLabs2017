@@ -1,38 +1,39 @@
 ﻿@model Game.Mvc.Models.City
 @{
     ViewBag.Title = "Index";
+
 }
+<div class="main">
+    <img id="city-bg" style="" />
 
-<h2>Index</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Building Type</th>
-            <th>Level</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="village-wrapper">
+        @{
+            int index = 0;
+        }
         @foreach (var building in this.Model.Buildings)
         {
             if (building.BuildingType != null)
             {
-                <tr>
-                    <td>@building.BuildingType.Name</td>
-                    <td>@building.Level</td>
-                    <td>@Html.ActionLink("Details", building.BuildingType.Action)</td>
-                </tr>
+                <div class="building @building.BuildingType.Name building-@index">
+                    <div class="hidden">@building.BuildingType.Name</div>
+                    <a href="@Url.Action(building.BuildingType.Action)">
+                        <img src="~/Content/img/@(building.BuildingType.Name).png" />
+                        <div class="building-level" data-building-id="@building.BuildingId" data-building-action="@building.BuildingType.Action">@building.Level</div>
+                    </a>
+                </div>
             }
             else
             {
-                <tr>
-                    <td>None</td>
-                    <td></td>
-                    <td>@Html.ActionLink("Build", "Build", new { id = building.BuildingId })</td>
-                </tr>
+                <div class="building building-@index building-empty">
+                    <a href="@Url.Action("Build")" ><img src="~/Content/img/empty.png" /></a>
+                </div>
             }
+            index++;
         }
-    </tbody>
-</table>
+    </div>
+</div>
 
+@section Scripts{
+    <script src="~/Scripts/site/buildings.js"> </script>
+    <script src="~/Scripts/Date.min.js"></script>
+}

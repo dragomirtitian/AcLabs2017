@@ -195,7 +195,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\Barracks.png" />
+    <Content Include="Content\img\city.jpg" />
+    <Content Include="Content\img\Empty.png" />
+    <Content Include="Content\img\Garnary.png" />
     <Content Include="Content\img\village-bg.jpg" />
+    <Content Include="Content\img\warehouse.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -237,6 +242,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site\buildings.js" />
     <Content Include="Scripts\site\mines.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
