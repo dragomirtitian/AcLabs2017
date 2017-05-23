@@ -1,0 +1,47 @@
+﻿@model Game.Mvc.Models.CityFilterViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Cities", FormMethod.Get))
+{
+    @Html.TextBoxFor(m => m.Name);
+    @Html.TextBoxFor(m => m.Email);
+    @Html.TextBoxFor(m => m.MinTroupCount);
+    @Html.TextBoxFor(m => m.MaxTroupCount);
+
+    <button type="submit">Filter</button>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Results[0].CityId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Results[0].ApplicationUser.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Results[0].ApplicationUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Results) {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.CityId)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Attack", "Attack", new { id=item.CityId })
+        </td>
+    </tr>
+}
+</table>

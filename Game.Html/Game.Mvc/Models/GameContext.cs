@@ -14,6 +14,9 @@ namespace Game.Mvc.Models
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Mine> Mines { get; set; }
         public DbSet<BuildingType> BuildingTypes { get; set; }
+
+        public DbSet<TroupType> TroupTypes { get; set; }
+        public DbSet<Troup> Troups { get; set; }
     }
 
     public class City
@@ -21,6 +24,8 @@ namespace Game.Mvc.Models
         public int CityId { get; set; }
 
         public virtual IList<Mine> Mines { get; set; }
+
+        public virtual IList<Troup> Troups { get; set; }
 
         public virtual IList<Building> Buildings { get; set; }
 
@@ -102,5 +107,25 @@ namespace Game.Mvc.Models
         public string Action { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+    }
+
+    public class Troup
+    {
+        public int TroupId { get; set; }
+        public int TroupTypeId { get; set; }
+        public virtual TroupType TroupType { get; set; }
+        public int CityId { get; set; }
+        public virtual City City { get; set; }
+        public int TroupCount { get; set; }
+        
+    }
+
+    public class TroupType
+    {
+        public int TroupTypeId { get; set; }
+        public string Name { get; set; }
+        public double Attack { get; set; }
+        public double Defence { get; set; }
+        public int CreationSpeed { get; set; }
     }
 }

@@ -161,10 +161,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\BuildingsController.cs" />
     <Compile Include="Controllers\MinesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TroupTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +182,10 @@
     <Compile Include="Migrations\201705091140018_Buildings.Designer.cs">
       <DependentUpon>201705091140018_Buildings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705230954531_Troups.cs" />
+    <Compile Include="Migrations\201705230954531_Troups.Designer.cs">
+      <DependentUpon>201705230954531_Troups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BuidlViewModel.cs" />
@@ -187,6 +193,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\UserFilterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -289,6 +296,12 @@
     <Content Include="Views\Buildings\Message.cshtml" />
     <Content Include="Views\Buildings\Details.cshtml" />
     <Content Include="Views\Buildings\Barracks.cshtml" />
+    <Content Include="Views\TroupTypes\Create.cshtml" />
+    <Content Include="Views\TroupTypes\Delete.cshtml" />
+    <Content Include="Views\TroupTypes\Details.cshtml" />
+    <Content Include="Views\TroupTypes\Edit.cshtml" />
+    <Content Include="Views\TroupTypes\Index.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705091140018_Buildings.resx">
       <DependentUpon>201705091140018_Buildings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705230954531_Troups.resx">
+      <DependentUpon>201705230954531_Troups.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
