@@ -30,14 +30,14 @@ namespace Game.Mvc.Migrations
             //
             context.BuildingTypes.AddOrUpdate(
                 p => p.Name,
-                new BuildingType { Name = "Garnary" },
-                new BuildingType { Name = "Barn" },
-                new BuildingType { Name = "Barracks" }
+                new BuildingType { Name = "Garnary", Action="Details" },
+                new BuildingType { Name = "Barn", Action = "Details" },
+                new BuildingType { Name = "Barracks", Action = "Barracks" }
             );
 
             foreach (var city in context.Cities.ToList())
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 13; i++)
                 {
                     var building = city.Buildings.ElementAtOrDefault(i);
                     if(building == null)
