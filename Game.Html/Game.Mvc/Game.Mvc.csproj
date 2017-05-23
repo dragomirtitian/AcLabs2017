@@ -166,6 +166,7 @@
     <Compile Include="Controllers\MinesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TroupTypes2Controller.cs" />
     <Compile Include="Controllers\TroupTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

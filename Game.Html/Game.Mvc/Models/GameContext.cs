@@ -121,6 +121,17 @@ namespace Game.Mvc.Models
         
     }
 
+    /*
+    public class TroupType
+    {
+        public int TroupTypeId { get; set; }
+        public string Name { get; set; }
+        public double Attack { get; set; }
+        public double Defence { get; set; }
+        public int CreationSpeed { get; set; }
+    }
+    */
+
     public class TroupType
     {
         public int TroupTypeId { get; set; }
@@ -136,4 +147,6 @@ namespace Game.Mvc.Models
         [Range(0, 100)]
         public int CreationSpeed { get; set; }
     }
+
+
 }
